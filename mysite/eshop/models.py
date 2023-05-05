@@ -6,9 +6,15 @@ class Status(models.Model):
     #id stulpelis priskiriamas automatiskai (nereikia kurti, bet reikia zinoti, kad turi ID!)
     name = models.CharField(verbose_name='Pavadinimas', max_length=50)
 
+    def __str__(self):
+        return self.name
+
 class Product(models.Model):
     name = models.CharField(verbose_name='Pavadinimas', max_length=50)
     price = models.FloatField(verbose_name='Kaina')
+
+    def __str__(self):
+        return self.name
 
 #kuriam pagrindine lentele 'order' (i ja yra 2 foreign key, taip pat reikia import User), is orderio puses many to one rysys:
 class Order(models.Model):

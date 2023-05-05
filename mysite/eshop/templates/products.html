@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Produktai{% endblock %}
+
+{% block content %}
+
+{% for element in products %}
+<p>{{ element }}</p>
+<hr>
+{% endfor %}
+
+{% endblock %}

@@ -12,6 +12,12 @@ class Product(models.Model):
 
 #kuriam pagrindine lentele 'order' (i ja yra 2 foreign key, taip pat reikia import User), is orderio puses many to one rysys:
 class Order(models.Model):
-    customer = models.ForeignKey(to=User, verbose_name='Vartotojas', on_delete=models.SET_NULL, null=True, blank=True)
+    customer = models.ForeignKey(to=User, verbose_name='Vartotojas', on_delete=models.CASCADE)
     date = models.DateTimeField(verbose_name='Data', auto_now_add=True)
     status = models.ForeignKey(to='Status', verbose_name='Busena', on_delete=models.SET_NULL, null=True, blank=True)
+
+class ProductLine(models.Model):
+    order = models.ForeignKey(to='Order', on_delete=models.CASCADE)
+    product = models.ForeignKey(to='Product', verbose_name='Preke', on_delete=models.SET_NULL, null=True, blank=True)
+    qty = models.IntegerField(verbose_name='Kiekis')
+

@@ -16,7 +16,7 @@ class Order(models.Model):
     date = models.DateTimeField(verbose_name='Data', auto_now_add=True)
     status = models.ForeignKey(to='Status', verbose_name='Busena', on_delete=models.SET_NULL, null=True, blank=True)
 
-class ProductLine(models.Model):
+class OrderLine(models.Model):
     order = models.ForeignKey(to='Order', on_delete=models.CASCADE)
     product = models.ForeignKey(to='Product', verbose_name='Preke', on_delete=models.SET_NULL, null=True, blank=True)
     qty = models.IntegerField(verbose_name='Kiekis')

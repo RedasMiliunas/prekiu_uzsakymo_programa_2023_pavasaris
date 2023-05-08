@@ -10,7 +10,7 @@
 <p><strong>Busena: </strong>{{ order.status }}</p>
 <hr>
 {% for line in order.lines.all %}
-<p>{{ line.product }}({{ line.product.price }}) - {{ line.qty }} </p>
+<p>{{ line.product }}({{ line.product.price }}) - {{ line.qty }}; suma: [{{ line.suma }}] </p>
 <hr>
 {% endfor %}
 {% endblock %}

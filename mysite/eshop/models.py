@@ -30,3 +30,5 @@ class OrderLine(models.Model):
     product = models.ForeignKey(to='Product', verbose_name='Preke', on_delete=models.SET_NULL, null=True, blank=True)
     qty = models.IntegerField(verbose_name='Kiekis')
 
+    def suma(self):
+        return self.product.price * self.qty

@@ -6,7 +6,9 @@
 <h3>Musu Produktai:</h3>
 <hr>
 {% for element in products %}
-<p>{{ element }}</p>
+<a href="{% url 'product' element.pk %}">
+    <p>{{ element }}</p>
+</a>
 <hr>
 {% endfor %}
 

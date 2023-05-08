@@ -26,7 +26,7 @@ class Order(models.Model):
         return f'{self.customer}, {self.date}, {self.status}'
 
 class OrderLine(models.Model):
-    order = models.ForeignKey(to='Order', on_delete=models.CASCADE)
+    order = models.ForeignKey(to='Order', on_delete=models.CASCADE, related_name='lines')
     product = models.ForeignKey(to='Product', verbose_name='Preke', on_delete=models.SET_NULL, null=True, blank=True)
     qty = models.IntegerField(verbose_name='Kiekis')
 

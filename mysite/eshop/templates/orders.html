@@ -6,7 +6,9 @@
 <h3>Uzsakymai:</h3>
 <hr>
 {% for element in orders %}
+<a href="{{ element.pk }}">
     <p>{{ element }}</p>
+    </a>
 <hr>
 {% endfor %}
 

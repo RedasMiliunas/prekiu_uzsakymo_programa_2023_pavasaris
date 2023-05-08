@@ -22,6 +22,13 @@ class Order(models.Model):
     date = models.DateTimeField(verbose_name='Data', auto_now_add=True)
     status = models.ForeignKey(to='Status', verbose_name='Busena', on_delete=models.SET_NULL, null=True, blank=True)
 
+    def total(self):
+        total = 0
+        lines = self.lines.all()
+        for line in lines:
+            total += line.suma()
+        return total
+
     def __str__(self):
         return f'{self.customer}, {self.date}, {self.status}'
 
